@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REDDY ANNA - WhatsApp Chat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+
+// Initializes the Pixel with the ID 795803096470958 and sends the PageView event
+fbq('init', '795803096470958');
+fbq('track', 'PageView');
+</script>
+<noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=795803096470958&ev=PageView&noscript=1"
+    />
+</noscript>
+<style>
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* --- HEADER STYLING --- */
+.header {
+    width: 100%;
+    background-color: #121212;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* Centered WhatsApp Logo Group */
+.header .whatsapp-logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 8.5px;
+    font-size: 1.5em;
+    font-weight: 800;
+    z-index: 10;
+    margin-left: 0;
+}
+
+/* Ensure side icons are above the centered logo if they pass over it */
+.header .menu-icon,
+.header .download-icon {
+    z-index: 20;
+}
+
+.header .menu-icon {
+    width: 24px;
+    height: 24px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+.header .whatsapp-logo img {
+    width: 28px;
+    height: 28px;
+}
+
+.header .download-icon {
+    width: 24px;
+    height: 24px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+/* --- CONTENT STYLING --- */
+.content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: 50px;
+}
+
+.logo-circle-wrapper {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    overflow: hidden;
+    /* GOLDEN LIGHT EFFECT */
+    box-shadow: 0 0 20px 8px rgba(255, 215, 0, 0.7),
+                0 0 10px rgba(37, 211, 102, 0.4);
+}
+
+.logo-circle-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.company-name {
+    font-size: 1.6em;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #fff;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+}
+
+.chat-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #25D366;
+    color: #fff;
+    padding: 14px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    border: none;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.chat-button:hover {
+    background-color: #128C7E;
+    transform: translateY(-1px);
+}
+
+#countdown-display {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    background-color: #fff;
+    border-radius: 50%;
+    font-size: 0.85em;
+    font-weight: 900;
+    color: #25D366;
+}
+
+.chat-message-preview-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.chat-message-preview {
+    padding: 12px 18px;
+    background-color: #2a3942;
+    border-radius: 10px 10px 0 10px;
+    font-size: 1.1em;
+    color: #fff;
+    max-width: 85%;
+    text-align: left;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+}
+
+.download-app-section {
+    margin-top: auto;
+    padding-bottom: 20px;
+    font-size: 0.99em;
+    color: #b0b0b0;
+}
+
+.download-app-section a {
+    color: #5BC0DE;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.download-app-section a:hover {
+    text-decoration: underline;
+}
+</style>
+
+<script>
+// WhatsApp Link (Phone Number: +918956608002, Message: Hello, I Need !D)
+const whatsappLink = "https://wa.me/918956608002?text=Hello,%20I%20Need%20%21D";
+const PIXEL_DELAY_MS = 500;
+
+// *** TIMER SET TO 3.0 SECONDS (Countdown start) ***
+let timer = 3.0;
+let intervalId;
+
+function redirectToWhatsApp() {
+    // 1. Lead Event Trigger
+    if (typeof fbq === 'function') {
+        fbq('track', 'Lead');
+    }
+
+    // 2. Wait 500ms for the pixel event to finish sending, then redirect
+    setTimeout(() => {
+        window.location.replace(whatsappLink);
+    }, PIXEL_DELAY_MS);
+}
+
+function updateCountdown() {
+    const countdownElement = document.getElementById('countdown-display');
+
+    if (countdownElement) {
+        // Display the timer, rounded up to show 3, 2, 1 (e.g., 2.9 becomes 3, 1.9 becomes 2)
+        // We use Math.ceil to ensure it shows the whole number countdown effect.
+        let displayValue = Math.ceil(timer);
+
+        // Don't show 0
+        if (displayValue <= 0) {
+            displayValue = 1; // Keep it at 1 for the last moment before redirect
+        }
+
+        countdownElement.textContent = displayValue;
+    }
+
+    // Stop and redirect when the timer drops to 0 or below
+    if (timer <= 0) {
+        clearInterval(intervalId);
+        redirectToWhatsApp();
+        return;
+    }
+
+    // Decrease the timer by 0.1 seconds every 100ms
+    timer = timer - 0.1;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Run updateCountdown() every 100 milliseconds
+    intervalId = setInterval(updateCountdown, 100);
+});
+
+
+function manualRedirect(){
+    clearInterval(intervalId);
+    redirectToWhatsApp();
+}
+</script>
+</head>
+<body>
+
+<div class="header">
+    <div class="menu-icon"></div>
+
+    <div class="whatsapp-logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
+        WhatsApp
+    </div>
+
+    <div class="download-icon"></div>
+</div>
+
+<div class="content">
+
+    <div class="logo-circle-wrapper">
+        <img src="fullhouse-logo.jpg.jpg" alt="REDDY ANNA Logo">
+    </div>
+    <div class="company-name">REDDY ANNA</div>
+
+    <button class="chat-button" onclick="manualRedirect()">
+        Continue to chat in
+        <span id="countdown-display">3</span>
+    </button>
+
+    <div class="chat-message-preview-wrapper">
+        <div class="chat-message-preview">
+            Hello, I Need !D
+        </div>
+    </div>
+
+    <div class="download-app-section">
+        Don't have WhatsApp yet? <a href="https://www.whatsapp.com/download/" target="_blank">Download</a>
+    </div>
+</div>
+
+</body>
+</html>
